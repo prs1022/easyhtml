@@ -1,312 +1,296 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>给婷婷的表白 💕</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .title {
+      font-size: 3rem;
+      color: #fff;
+      margin-bottom: 30px;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
+      to { text-shadow: 0 0 30px rgba(255, 255, 255, 1), 0 0 40px rgba(255, 182, 193, 0.8); }
+    }
+
+    .message {
+      font-size: 1.5rem;
+      color: #fff;
+      margin-bottom: 40px;
+      max-width: 600px;
+      line-height: 1.6;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: bold;
+    }
+
+    .btn-yes {
+      background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+      color: white;
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+    }
+
+    .btn-yes:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+    }
+
+    .btn-no {
+      background: linear-gradient(45deg, #a8e6cf, #88d8a3);
+      color: #2d3436;
+      box-shadow: 0 4px 15px rgba(168, 230, 207, 0.4);
+      position: relative;
+    }
+
+    .btn-no:hover {
+      transform: translateX(100px);
+    }
+
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .heart {
+      position: absolute;
+      color: rgba(255, 182, 193, 0.8);
+      font-size: 20px;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .success-message {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      margin: 20px;
+    }
+
+    .success-message h2 {
+      color: #e74c3c;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+
+    .success-message p {
+      color: #2d3436;
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .music-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 100;
+    }
+
+    .music-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      .title {
+        font-size: 2rem;
+      }
+      .message {
+        font-size: 1.2rem;
+      }
+      .btn {
+        padding: 12px 24px;
+        font-size: 1rem;
+      }
+      .buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
   </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="zh-CN"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;给婷婷的表白 💕&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>* {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-sizing: border-box;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Arial', sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>min-height: 100vh;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>overflow-x: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.container {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>min-height: 100vh;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>z-index: 10;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.title {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 3rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #fff;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 30px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>animation: glow 2s ease-in-out infinite alternate;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>@keyframes glow {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>from { text-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>to { text-shadow: 0 0 30px rgba(255, 255, 255, 1), 0 0 40px rgba(255, 182, 193, 0.8); }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.message {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #fff;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 40px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 600px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.6;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.buttons {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>gap: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>flex-wrap: wrap;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.btn {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 15px 30px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.2rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.3s ease;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: inline-block;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.btn-yes {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(45deg, #ff6b6b, #ee5a24);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.btn-yes:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-3px);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.btn-no {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(45deg, #a8e6cf, #88d8a3);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #2d3436;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 15px rgba(168, 230, 207, 0.4);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.btn-no:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: translateX(100px);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.hearts {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: fixed;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>top: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>left: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>pointer-events: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>z-index: 1;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.heart {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: rgba(255, 182, 193, 0.8);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>animation: fall linear infinite;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>@keyframes fall {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>0% {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>transform: translateY(-100vh) rotate(0deg);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>opacity: 1;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>100% {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>transform: translateY(100vh) rotate(360deg);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>opacity: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.hidden {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: none;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.success-message {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255, 255, 255, 0.9);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 40px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 500px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.success-message h2 {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #e74c3c;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 2rem;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.success-message p {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #2d3436;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.2rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.6;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.music-btn {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: fixed;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>top: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>right: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255, 255, 255, 0.2);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid rgba(255, 255, 255, 0.5);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 60px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 60px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.3s ease;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>z-index: 100;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.music-btn:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: rgba(255, 255, 255, 0.3);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transform: scale(1.1);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>@media (max-width: 768px) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.title {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>font-size: 2rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.message {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>font-size: 1.2rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.btn {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>padding: 12px 24px;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>font-size: 1rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.buttons {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>flex-direction: column;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="hearts" id="hearts"&gt;&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="music-btn" onclick="toggleMusic()"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>🎵</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="confession"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1 class="title"&gt;亲爱的婷婷 💕&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="message"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;从遇见你的那一刻起，我的世界就变得不一样了&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;你的笑容像春天的阳光，温暖着我的心&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;你的声音像夏夜的微风，让我心动不已&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;我想对你说...&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p style="font-size: 2rem; margin: 20px 0; color: #ff6b6b;"&gt;我喜欢你！&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p&gt;愿意做我的女朋友吗？&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="buttons"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="btn btn-yes" onclick="showSuccess()"&gt;我愿意 💕&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;button class="btn btn-no" id="noBtn" onclick="moveButton()"&gt;我拒绝 😅&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="successMessage" class="success-message hidden"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2&gt;太好了！🎉&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;婷婷，谢谢你愿意给我们一个机会！&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;我会用心对待你，让你每天都开心快乐！&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;我们一起创造属于我们的美好回忆吧！💕&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p style="margin-top: 20px; font-style: italic;"&gt;"爱你，是我做过最美好的决定" ❤️&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;audio id="bgMusic" loop&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/audio&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>// 创建飘落的爱心</p>
-<p class="p1"><span class="Apple-converted-space">        </span>function createHeart() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const heart = document.createElement('div');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>heart.className = 'heart';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>heart.innerHTML = '💕';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>heart.style.left = Math.random() * 100 + 'vw';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>heart.style.animationDuration = (Math.random() * 3 + 2) + 's';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>heart.style.fontSize = (Math.random() * 10 + 15) + 'px';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('hearts').appendChild(heart);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>setTimeout(() =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>heart.remove();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}, 5000);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// 每500ms创建一个爱心</p>
-<p class="p1"><span class="Apple-converted-space">        </span>setInterval(createHeart, 500);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// 显示成功消息</p>
-<p class="p1"><span class="Apple-converted-space">        </span>function showSuccess() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('confession').classList.add('hidden');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('successMessage').classList.remove('hidden');</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// 创建更多爱心庆祝</p>
-<p class="p1"><span class="Apple-converted-space">            </span>for(let i = 0; i &lt; 20; i++) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>setTimeout(createHeart, i * 100);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// 移动拒绝按钮</p>
-<p class="p1"><span class="Apple-converted-space">        </span>function moveButton() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const noBtn = document.getElementById('noBtn');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const randomX = Math.random() * (window.innerWidth - 200);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const randomY = Math.random() * (window.innerHeight - 100);</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>noBtn.style.position = 'fixed';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>noBtn.style.left = randomX + 'px';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>noBtn.style.top = randomY + 'px';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>noBtn.innerHTML = '别点我 😝';</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>setTimeout(() =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>noBtn.innerHTML = '真的拒绝？ 🥺';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}, 1000);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// 音乐控制</p>
-<p class="p1"><span class="Apple-converted-space">        </span>let musicPlaying = false;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>function toggleMusic() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const music = document.getElementById('bgMusic');</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (musicPlaying) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>music.pause();</p>
-<p class="p1"><span class="Apple-converted-space">                </span>musicPlaying = false;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>music.play().catch(e =&gt; console.log('音乐播放需要用户交互'));</p>
-<p class="p1"><span class="Apple-converted-space">                </span>musicPlaying = true;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// 页面加载完成后的特效</p>
-<p class="p1"><span class="Apple-converted-space">        </span>window.addEventListener('load', () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.body.style.opacity = '0';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.body.style.transition = 'opacity 1s ease-in';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>setTimeout(() =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>document.body.style.opacity = '1';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}, 100);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>});</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+  <div class="hearts" id="hearts"></div>
+
+  <div class="music-btn" onclick="toggleMusic()">
+    🎵
+  </div>
+
+  <div class="container">
+    <div id="confession">
+      <h1 class="title">亲爱的婷婷 💕</h1>
+      <div class="message">
+        <p>从遇见你的那一刻起，我的世界就变得不一样了</p>
+        <p>你的笑容像春天的阳光，温暖着我的心</p>
+        <p>你的声音像夏夜的微风，让我心动不已</p>
+        <p>我想对你说...</p>
+        <p style="font-size: 2rem; margin: 20px 0; color: #ff6b6b;">我喜欢你！</p>
+        <p>愿意做我的女朋友吗？</p>
+      </div>
+      <div class="buttons">
+        <button class="btn btn-yes" onclick="showSuccess()">我愿意 💕</button>
+        <button class="btn btn-no" id="noBtn" onclick="moveButton()">我拒绝 😅</button>
+      </div>
+    </div>
+
+    <div id="successMessage" class="success-message hidden">
+      <h2>太好了！🎉</h2>
+      <p>婷婷，谢谢你愿意给我们一个机会！</p>
+      <p>我会用心对待你，让你每天都开心快乐！</p>
+      <p>我们一起创造属于我们的美好回忆吧！💕</p>
+      <p style="margin-top: 20px; font-style: italic;">"爱你，是我做过最美好的决定" ❤️</p>
+    </div>
+  </div>
+
+  <audio id="bgMusic" loop>
+    <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav">
+  </audio>
+
+  <script>
+    // 创建飘落的爱心
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.innerHTML = '💕';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      heart.style.fontSize = (Math.random() * 10 + 15) + 'px';
+      document.getElementById('hearts').appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    // 每500ms创建一个爱心
+    setInterval(createHeart, 500);
+
+    // 显示成功消息
+    function showSuccess() {
+      document.getElementById('confession').classList.add('hidden');
+      document.getElementById('successMessage').classList.remove('hidden');
+
+      // 创建更多爱心庆祝
+      for(let i = 0; i < 20; i++) {
+        setTimeout(createHeart, i * 100);
+      }
+    }
+
+    // 移动拒绝按钮
+    function moveButton() {
+      const noBtn = document.getElementById('noBtn');
+      const randomX = Math.random() * (window.innerWidth - 200);
+      const randomY = Math.random() * (window.innerHeight - 100);
+
+      noBtn.style.position = 'fixed';
+      noBtn.style.left = randomX + 'px';
+      noBtn.style.top = randomY + 'px';
+      noBtn.innerHTML = '别点我 😝';
+
+      setTimeout(() => {
+        noBtn.innerHTML = '真的拒绝？ 🥺';
+      }, 1000);
+    }
+
+    // 音乐控制
+    let musicPlaying = false;
+    function toggleMusic() {
+      const music = document.getElementById('bgMusic');
+      if (musicPlaying) {
+        music.pause();
+        musicPlaying = false;
+      } else {
+        music.play().catch(e => console.log('音乐播放需要用户交互'));
+        musicPlaying = true;
+      }
+    }
+
+    // 页面加载完成后的特效
+    window.addEventListener('load', () => {
+      document.body.style.opacity = '0';
+      document.body.style.transition = 'opacity 1s ease-in';
+      setTimeout(() => {
+        document.body.style.opacity = '1';
+      }, 100);
+    });
+  </script>
 </body>
 </html>
