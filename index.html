@@ -135,14 +135,14 @@
         <div class="container mx-auto grid md:grid-cols-2 gap-10 items-center">
             <div class="space-y-6 animate-fade-in">
                 <div class="inline-block px-4 py-1 bg-primary/20 rounded-full text-primary font-code mb-4">
-                    <i class="fa fa-rocket mr-2"></i>8年Java后端开发
+                    <i class="fa fa-rocket mr-2"></i>8年Java后端开发 · AI应用工程师
                 </div>
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                     浦仁松
                     <span class="text-primary text-shadow">资深Java开发</span>
                 </h1>
                 <p class="text-xl md:text-2xl text-gray-300 font-code animate-typewriter w-fit">
-                    专注后端架构 & 高可用系统设计
+                    专注后端架构 & AI应用与语料工程
                 </p>
                 <div class="flex flex-wrap gap-4 pt-4">
                     <a href="#contact" class="px-6 py-3 bg-primary hover:bg-primary/80 rounded-lg font-medium glow transition-all duration-300 flex items-center gap-2">
@@ -173,11 +173,17 @@
         <span class="text-green-400">"K8s"</span>, <span class="text-green-400">"Redis"</span>,
         <span class="text-green-400">"Dubbo"</span>, <span class="text-green-400">"MySQL"</span>
     };
+    <span class="text-primary">private String</span>[] aiStack = {
+        <span class="text-green-400">"NLP"</span>, <span class="text-green-400">"Claude"</span>,
+        <span class="text-green-400">"GLM"</span>, <span class="text-green-400">"Qwen"</span>,
+        <span class="text-green-400">"DeepSeek"</span>, <span class="text-green-400">"PromptEng"</span>
+    };
 
     <span class="text-primary">public void</span> <span class="text-yellow-400">coreStrengths</span>() {
         <span class="text-gray-500">// 后端架构设计</span>
         <span class="text-gray-500">// 高可用系统开发</span>
         <span class="text-gray-500">// 性能优化专家</span>
+        <span class="text-gray-500">// AI应用与语料工程</span>
     }
 
     <span class="text-primary">public static void</span> <span class="text-yellow-400">main</span>(String[] args) {
@@ -241,9 +247,15 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3">个人简介</h3>
                     <p class="text-gray-300 leading-relaxed mb-6">
-                        8年Java后端开发经验，专注于高可用分布式系统架构设计与实现。拥有从0到1搭建后端平台的丰富经验，
+                        8年Java后端开发经验，专注于高可用分布式系统架构设计与AI应用落地。拥有从0到1搭建后端平台的丰富经验，
                         擅长性能优化、微服务架构、缓存策略设计和高并发处理。熟练掌握Java生态核心技术栈，
-                        同时具备全栈开发能力，能够独立完成前后端协同开发。
+                        同时具备全栈开发能力与AI工程化实践经验，能够独立完成前后端协同开发及AI模型应用集成。
+                    </p>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        在AI领域具有丰富的实践经验，熟悉NLP语料清洗、数据标注及模型微调全流程，
+                        熟练使用Claude Code、Qoder、Kiro等AI编程工具提升研发效能，
+                        深入了解Claude Sonnet系列、GLM、Qwen、DeepSeek等主流大模型的技术特性与应用场景，
+                        擅长Prompt Engineering与AI Agent设计，推动AI技术在实际业务中的工程化落地。
                     </p>
                     <p class="text-gray-300 leading-relaxed">
                         工作中注重技术创新与效率提升，自主开发多款工具类项目提升团队研发效率。
@@ -301,11 +313,23 @@
                             </div>
                         </div>
                         <div class="md:w-3/4 bg-code/50 backdrop-blur-sm rounded-xl p-6 border border-gray-800 hover:border-primary/50 transition-all duration-300">
-                            <h3 class="text-xl font-bold mb-3">上海分公司 · 智能语音助手云端开发</h3>
+                            <h3 class="text-xl font-bold mb-3">上海分公司 · 智能语音助手云端开发 & AI应用</h3>
                             <ul class="space-y-3 text-gray-300">
                                 <li class="flex gap-3">
                                     <i class="fa fa-check-circle text-primary mt-1"></i>
                                     <span>主导智能语音助手云端开发，实现车机、手机、AR眼镜等多平台适配</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <i class="fa fa-check-circle text-primary mt-1"></i>
+                                    <span>负责NLP语料数据清洗与标注流程建设，构建高质量训练语料集，支撑对话模型的持续迭代优化</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <i class="fa fa-check-circle text-primary mt-1"></i>
+                                    <span>基于Claude Sonnet、GLM、Qwen、DeepSeek等大模型，设计并实现AI Agent智能对话能力</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <i class="fa fa-check-circle text-primary mt-1"></i>
+                                    <span>引入Claude Code、Qoder、Kiro等AI编程工具，推动团队AI辅助开发工作流，提升研发效率30%+</span>
                                 </li>
                                 <li class="flex gap-3">
                                     <i class="fa fa-check-circle text-primary mt-1"></i>
@@ -422,7 +446,7 @@
                 </h2>
                 <div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
                 <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
-                    从智能语音到BI系统，每一个项目都凝聚技术沉淀与创新思考
+                    从智能语音到AI工程化落地，每一个项目都凝聚技术沉淀与创新思考
                 </p>
             </div>
 
@@ -557,6 +581,84 @@
                     </div>
                 </div>
 
+                <!-- NLP语料清洗与训练平台 -->
+                <div class="bg-code/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 hover:border-primary/50 transition-all duration-300 group">
+                    <div class="h-48 bg-gradient-to-r from-primary/30 to-secondary/30 flex items-center justify-center">
+                        <i class="fa fa-comments text-6xl text-white/80 group-hover:scale-110 transition-transform duration-300"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-bold">NLP语料清洗与训练平台</h3>
+                            <span class="px-2 py-1 bg-secondary/20 rounded text-secondary text-xs">AI工程</span>
+                        </div>
+                        <div class="text-gray-400 text-sm font-code mb-4">2023.06 - 至今</div>
+                        <p class="text-gray-300 mb-4">
+                            构建NLP语料数据全流程处理平台，涵盖数据采集、清洗去重、质量评估、标注管理与模型微调，支撑对话系统与语义理解模型持续迭代。
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-gray-800 rounded text-xs">NLP</span>
+                            <span class="px-2 py-1 bg-gray-800 rounded text-xs">语料清洗</span>
+                            <span class="px-2 py-1 bg-gray-800 rounded text-xs">SFT微调</span>
+                            <span class="px-2 py-1 bg-gray-800 rounded text-xs">数据标注</span>
+                        </div>
+                        <a href="#" class="text-primary hover:text-primary/80 text-sm flex items-center gap-1 group-hover:gap-2 transition-all duration-300">
+                            查看详情 <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- AI大模型应用集成平台 -->
+                <div class="bg-code/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 hover:border-primary/50 transition-all duration-300 group">
+                    <div class="h-48 bg-gradient-to-r from-secondary/30 to-primary/30 flex items-center justify-center">
+                        <i class="fa fa-brain text-6xl text-white/80 group-hover:scale-110 transition-transform duration-300"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-bold">AI大模型应用集成平台</h3>
+                            <span class="px-2 py-1 bg-secondary/20 rounded text-secondary text-xs">AI应用</span>
+                        </div>
+                        <div class="text-gray-400 text-sm font-code mb-4">2024.01 - 至今</div>
+                        <p class="text-gray-300 mb-4">
+                            统一集成Claude Sonnet、GLM、Qwen、DeepSeek等主流大模型，实现多模型路由、Prompt编排、AI Agent工作流编排与业务场景落地。
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-gray-800 rounded text-xs">Claude Sonnet</span>
+                            <span class="px-2 py-1 bg-gray-800 rounded text-xs">GLM</span>
+                            <span class="px-2 py-1 bg-gray-800 rounded text-xs">Qwen</span>
+                            <span class="px-2 py-1 bg-gray-800 rounded text-xs">DeepSeek</span>
+                        </div>
+                        <a href="#" class="text-primary hover:text-primary/80 text-sm flex items-center gap-1 group-hover:gap-2 transition-all duration-300">
+                            查看详情 <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- AI编程工具链实践 -->
+                <div class="bg-code/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 hover:border-primary/50 transition-all duration-300 group">
+                    <div class="h-48 bg-gradient-to-r from-primary/30 to-secondary/30 flex items-center justify-center">
+                        <i class="fa fa-magic text-6xl text-white/80 group-hover:scale-110 transition-transform duration-300"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-xl font-bold">AI编程工具链实践</h3>
+                            <span class="px-2 py-1 bg-secondary/20 rounded text-secondary text-xs">效率工程</span>
+                        </div>
+                        <div class="text-gray-400 text-sm font-code mb-4">2024.06 - 至今</div>
+                        <p class="text-gray-300 mb-4">
+                            深度实践Claude Code、Qoder、Kiro等AI编程工具，构建AI辅助开发工作流，实现代码生成、审查、重构自动化，团队研发效能提升30%+。
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-2 py-1 bg-gray-800 rounded text-xs">Claude Code</span>
+                            <span class="px-2 py-1 bg-gray-800 rounded text-xs">Qoder</span>
+                            <span class="px-2 py-1 bg-gray-800 rounded text-xs">Kiro</span>
+                            <span class="px-2 py-1 bg-gray-800 rounded text-xs">Prompt Eng</span>
+                        </div>
+                        <a href="#" class="text-primary hover:text-primary/80 text-sm flex items-center gap-1 group-hover:gap-2 transition-all duration-300">
+                            查看详情 <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
                 <!-- 开源项目 -->
                 <div class="bg-code/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 hover:border-primary/50 transition-all duration-300 group">
                     <div class="h-48 bg-gradient-to-r from-secondary/30 to-primary/30 flex items-center justify-center">
@@ -635,6 +737,26 @@
                             <h4 class="font-bold mb-1">DevOps</h4>
                             <p class="text-sm text-gray-400">Jenkins/云效</p>
                         </div>
+                        <div class="skill-tag bg-code/70 rounded-lg p-4 border border-gray-800 hover:border-primary/50">
+                            <div class="text-secondary text-xl mb-2"><i class="fa fa-comments"></i></div>
+                            <h4 class="font-bold mb-1">NLP工程</h4>
+                            <p class="text-sm text-gray-400">语料清洗/标注/SFT微调</p>
+                        </div>
+                        <div class="skill-tag bg-code/70 rounded-lg p-4 border border-gray-800 hover:border-primary/50">
+                            <div class="text-secondary text-xl mb-2"><i class="fa fa-brain"></i></div>
+                            <h4 class="font-bold mb-1">大模型应用</h4>
+                            <p class="text-sm text-gray-400">Claude/GLM/Qwen/DeepSeek</p>
+                        </div>
+                        <div class="skill-tag bg-code/70 rounded-lg p-4 border border-gray-800 hover:border-primary/50">
+                            <div class="text-secondary text-xl mb-2"><i class="fa fa-magic"></i></div>
+                            <h4 class="font-bold mb-1">AI编程工具</h4>
+                            <p class="text-sm text-gray-400">Claude Code/Qoder/Kiro</p>
+                        </div>
+                        <div class="skill-tag bg-code/70 rounded-lg p-4 border border-gray-800 hover:border-primary/50">
+                            <div class="text-secondary text-xl mb-2"><i class="fa fa-puzzle-piece"></i></div>
+                            <h4 class="font-bold mb-1">Prompt工程</h4>
+                            <p class="text-sm text-gray-400">Agent设计/工作流编排</p>
+                        </div>
                     </div>
 
                     <h3 class="text-2xl font-bold mb-8 mt-16 flex items-center gap-2">
@@ -673,6 +795,30 @@
                                 注重自动化工具开发，自主研发多款效率工具，提升团队研发效率
                             </p>
                         </div>
+                        <div class="bg-code/50 backdrop-blur-sm rounded-lg p-4 border border-gray-800 hover:border-secondary/50 transition-all duration-300">
+                            <h4 class="font-bold flex items-center gap-2">
+                                <i class="fa fa-check text-secondary"></i> NLP语料工程
+                            </h4>
+                            <p class="text-gray-400 text-sm mt-1">
+                                精通NLP语料数据全流程处理，包括数据采集、清洗去重、质量评估、标注管理及SFT微调，构建高质量训练语料集
+                            </p>
+                        </div>
+                        <div class="bg-code/50 backdrop-blur-sm rounded-lg p-4 border border-gray-800 hover:border-secondary/50 transition-all duration-300">
+                            <h4 class="font-bold flex items-center gap-2">
+                                <i class="fa fa-check text-secondary"></i> 大模型应用集成
+                            </h4>
+                            <p class="text-gray-400 text-sm mt-1">
+                                熟练集成Claude Sonnet、GLM、Qwen、DeepSeek等主流大模型，实现多模型路由、Prompt编排与AI Agent工作流设计
+                            </p>
+                        </div>
+                        <div class="bg-code/50 backdrop-blur-sm rounded-lg p-4 border border-gray-800 hover:border-secondary/50 transition-all duration-300">
+                            <h4 class="font-bold flex items-center gap-2">
+                                <i class="fa fa-check text-secondary"></i> AI辅助研发效能
+                            </h4>
+                            <p class="text-gray-400 text-sm mt-1">
+                                深度实践Claude Code、Qoder、Kiro等AI编程工具，推动团队AI辅助开发工作流，研发效率提升30%+
+                            </p>
+                        </div>
                     </div>
                 </div>
 
@@ -695,7 +841,25 @@
                                     <span class="text-primary">90%</span>
                                 </div>
                                 <div class="w-full bg-gray-800 rounded-full h-2">
-                                    <div class="bg-gradient-to-r from-primary to-secondary h-2 rounded-full" style="width: 90%"></div>
+                                    <div class="bg-gradient-to-r from-secondary to-primary h-2 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">大模型集成</span>
+                                    <span class="text-secondary">85%</span>
+                                </div>
+                                <div class="w-full bg-gray-800 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-secondary to-primary h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">NLP语料工程</span>
+                                    <span class="text-secondary">85%</span>
+                                </div>
+                                <div class="w-full bg-gray-800 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-secondary to-primary h-2 rounded-full" style="width: 85%"></div>
                                 </div>
                             </div>
                             <div>
@@ -862,10 +1026,10 @@
         new Chart(ctx, {
             type: 'radar',
             data: {
-                labels: ['Java', 'Spring生态', '数据库', '云原生', '消息队列', '微服务', '前端技术'],
+                labels: ['Java', 'Spring生态', '数据库', '云原生', '消息队列', '微服务', 'AI/LLM', 'NLP工程', 'Prompt Eng'],
                 datasets: [{
                     label: '技能熟练度',
-                    data: [95, 90, 88, 85, 85, 92, 70],
+                    data: [95, 90, 88, 85, 85, 92, 88, 85, 82],
                     backgroundColor: 'rgba(14, 165, 233, 0.2)',
                     borderColor: 'rgba(14, 165, 233, 1)',
                     pointBackgroundColor: 'rgba(14, 165, 233, 1)',
