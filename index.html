@@ -36,7 +36,7 @@
                 box-shadow: 0 0 15px rgba(14, 165, 233, 0.5);
             }
             .bg-grid {
-                background-image: 
+                background-image:
                     linear-gradient(rgba(14, 165, 233, 0.1) 1px, transparent 1px),
                     linear-gradient(90deg, rgba(14, 165, 233, 0.1) 1px, transparent 1px);
                 background-size: 20px 20px;
@@ -71,9 +71,64 @@
             50% { border-color: #0ea5e9 }
         }
 
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes progressFill {
+            from { width: 0; }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 15px rgba(14, 165, 233, 0.5); }
+            50% { box-shadow: 0 0 25px rgba(14, 165, 233, 0.8); }
+        }
+
+        .skill-tag {
+            transition: all 0.3s ease;
+        }
         .skill-tag:hover {
             transform: translateY(-3px) scale(1.05);
-            transition: all 0.3s ease;
         }
 
         .timeline-item::before {
@@ -97,22 +152,172 @@
             width: 2px;
             background: linear-gradient(to bottom, #0ea5e9, #7c3aed);
         }
+
+        /* 通用滚动动画 */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .animate-on-scroll.animate-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .animate-on-scroll-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .animate-on-scroll-left.animate-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .animate-on-scroll-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .animate-on-scroll-right.animate-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .animate-on-scroll-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .animate-on-scroll-scale.animate-visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* 进度条动画 */
+        .progress-bar-fill {
+            width: 0;
+            transition: width 1.2s ease-out;
+        }
+        .progress-bar-fill.animate-fill {
+            width: var(--target-width);
+        }
+
+        /* 导航激活状态 */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #0ea5e9;
+            transition: width 0.3s ease;
+        }
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* 项目卡片悬停效果 */
+        .project-card {
+            transition: all 0.4s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        .project-card .card-icon {
+            transition: all 0.4s ease;
+        }
+        .project-card:hover .card-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+        .project-card .card-overlay {
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .project-card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        /* 代码块标题栏 */
+        .code-window-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px 12px 0 0;
+        }
+        .code-window-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        /* 鼠标跟随光标效果 */
+        .cursor-glow {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s;
+        }
+
+        /* 分隔线动画 */
+        .section-divider {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #0ea5e9, #7c3aed);
+            margin: 0 auto;
+            border-radius: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+        .section-divider::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 2s infinite;
+        }
+        @keyframes shimmer {
+            100% { left: 100%; }
+        }
+
+        /* 平滑滚动 */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 <body class="bg-dark text-light font-sans overflow-x-hidden bg-grid">
+    <!-- 鼠标跟随光标 -->
+    <div id="cursorGlow" class="cursor-glow hidden md:block"></div>
+
     <!-- 顶部导航 -->
     <nav id="navbar" class="fixed top-0 left-0 w-full bg-dark/80 backdrop-blur-md z-50 transition-all duration-300">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <i class="fa fa-code text-primary text-2xl"></i>
+            <a href="#" class="flex items-center gap-2 group">
+                <i class="fa fa-code text-primary text-2xl group-hover:rotate-12 transition-transform duration-300"></i>
                 <span class="text-xl font-bold text-primary">PR'S RESUME</span>
-            </div>
+            </a>
             <div class="hidden md:flex gap-8">
-                <a href="#about" class="hover:text-primary transition-colors duration-300">关于我</a>
-                <a href="#experience" class="hover:text-primary transition-colors duration-300">工作经历</a>
-                <a href="#projects" class="hover:text-primary transition-colors duration-300">项目经验</a>
-                <a href="#skills" class="hover:text-primary transition-colors duration-300">技能栈</a>
-                <a href="#contact" class="hover:text-primary transition-colors duration-300">联系方式</a>
+                <a href="#about" class="nav-link hover:text-primary transition-colors duration-300">关于我</a>
+                <a href="#experience" class="nav-link hover:text-primary transition-colors duration-300">工作经历</a>
+                <a href="#projects" class="nav-link hover:text-primary transition-colors duration-300">项目经验</a>
+                <a href="#skills" class="nav-link hover:text-primary transition-colors duration-300">技能栈</a>
+                <a href="#contact" class="nav-link hover:text-primary transition-colors duration-300">联系方式</a>
             </div>
             <button class="md:hidden text-2xl" id="menuBtn">
                 <i class="fa fa-bars text-primary"></i>
@@ -163,8 +368,24 @@
             </div>
             <div class="relative">
                 <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 rounded-full blur-3xl opacity-70 animate-pulse"></div>
-                <div class="relative bg-code p-6 rounded-2xl glow border border-primary/30">
-                    <pre class="text-sm md:text-base font-code text-gray-300 overflow-x-auto scrollbar-hide">
+                <div class="relative bg-code rounded-2xl glow border border-primary/30 overflow-hidden">
+                    <!-- IDE 标题栏 -->
+                    <div class="code-window-header">
+                        <div class="code-window-dot bg-red-500"></div>
+                        <div class="code-window-dot bg-yellow-500"></div>
+                        <div class="code-window-dot bg-green-500"></div>
+                        <span class="ml-4 text-gray-400 text-sm font-code">SeniorJavaDeveloper.java</span>
+                    </div>
+                    <!-- 代码行号 + 内容 -->
+                    <div class="flex">
+                        <div class="hidden md:flex flex-col items-end py-4 px-3 bg-black/20 text-gray-600 text-sm font-code select-none border-r border-gray-800">
+                            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                            <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+                            <span>11</span><span>12</span><span>13</span><span>14</span><span>15</span>
+                            <span>16</span><span>17</span><span>18</span><span>19</span><span>20</span>
+                            <span>21</span><span>22</span><span>23</span><span>24</span><span>25</span>
+                        </div>
+                        <pre class="text-sm md:text-base font-code text-gray-300 overflow-x-auto scrollbar-hide p-6 flex-1">
 <span class="text-primary">public class</span> <span class="text-yellow-400">SeniorJavaDeveloper</span> {
     <span class="text-primary">private String</span> name = <span class="text-green-400">"浦仁松"</span>;
     <span class="text-primary">private int</span> experience = <span class="text-purple-400">8</span>; <span class="text-gray-500">// 年</span>
@@ -191,7 +412,8 @@
         prs.<span class="text-yellow-400">coreStrengths</span>();
     }
 }
-                    </pre>
+                        </pre>
+                    </div>
                 </div>
             </div>
         </div>
@@ -200,15 +422,15 @@
     <!-- 关于我 -->
     <section id="about" class="py-20 px-4">
         <div class="container mx-auto">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16 animate-on-scroll">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">
                     <span class="text-primary">#</span> 关于我
                 </h2>
-                <div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+                <div class="section-divider"></div>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-code/50 backdrop-blur-sm rounded-xl p-6 border border-gray-800 hover:border-primary/50 transition-all duration-300">
+                <div class="animate-on-scroll-left bg-code/50 backdrop-blur-sm rounded-xl p-6 border border-gray-800 hover:border-primary/50 transition-all duration-300">
                     <div class="text-primary text-3xl mb-4">
                         <i class="fa fa-user-circle"></i>
                     </div>
@@ -241,7 +463,7 @@
                     </ul>
                 </div>
 
-                <div class="bg-code/50 backdrop-blur-sm rounded-xl p-6 border border-gray-800 hover:border-primary/50 transition-all duration-300 md:col-span-2">
+                <div class="animate-on-scroll-right bg-code/50 backdrop-blur-sm rounded-xl p-6 border border-gray-800 hover:border-primary/50 transition-all duration-300 md:col-span-2">
                     <div class="text-primary text-3xl mb-4">
                         <i class="fa fa-info-circle"></i>
                     </div>
@@ -291,11 +513,11 @@
     <!-- 工作经历 -->
     <section id="experience" class="py-20 px-4 bg-code/30">
         <div class="container mx-auto">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16 animate-on-scroll">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">
                     <span class="text-primary">#</span> 工作经历
                 </h2>
-                <div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+                <div class="section-divider"></div>
                 <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
                     从电商到金融再到智能硬件，8年技术沉淀，持续深耕Java后端领域
                 </p>
@@ -440,11 +662,11 @@
     <!-- 项目经验 -->
     <section id="projects" class="py-20 px-4">
         <div class="container mx-auto">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16 animate-on-scroll">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">
                     <span class="text-primary">#</span> 项目经验
                 </h2>
-                <div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+                <div class="section-divider"></div>
                 <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
                     从智能语音到AI工程化落地，每一个项目都凝聚技术沉淀与创新思考
                 </p>
@@ -452,9 +674,12 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- 语音助手平台 -->
-                <div class="bg-code/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 hover:border-primary/50 transition-all duration-300 group">
-                    <div class="h-48 bg-gradient-to-r from-primary/30 to-secondary/30 flex items-center justify-center">
-                        <i class="fa fa-microphone text-6xl text-white/80 group-hover:scale-110 transition-transform duration-300"></i>
+                <div class="project-card animate-on-scroll-scale bg-code/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 hover:border-primary/50 group cursor-pointer">
+                    <div class="h-48 bg-gradient-to-r from-primary/30 to-secondary/30 flex items-center justify-center relative">
+                        <div class="card-overlay absolute inset-0 bg-gradient-to-r from-primary/50 to-secondary/50 flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">查看详情</span>
+                        </div>
+                        <i class="card-icon fa fa-microphone text-6xl text-white/80"></i>
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-3">
@@ -478,9 +703,12 @@
                 </div>
 
                 <!-- Superset二次开发 -->
-                <div class="bg-code/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 hover:border-primary/50 transition-all duration-300 group">
-                    <div class="h-48 bg-gradient-to-r from-secondary/30 to-primary/30 flex items-center justify-center">
-                        <i class="fa fa-bar-chart text-6xl text-white/80 group-hover:scale-110 transition-transform duration-300"></i>
+                <div class="project-card animate-on-scroll-scale bg-code/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 hover:border-primary/50 group cursor-pointer">
+                    <div class="h-48 bg-gradient-to-r from-secondary/30 to-primary/30 flex items-center justify-center relative">
+                        <div class="card-overlay absolute inset-0 bg-gradient-to-r from-secondary/50 to-primary/50 flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">查看详情</span>
+                        </div>
+                        <i class="card-icon fa fa-bar-chart text-6xl text-white/80"></i>
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-3">
@@ -504,9 +732,12 @@
                 </div>
 
                 <!-- 在线报表大屏 -->
-                <div class="bg-code/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 hover:border-primary/50 transition-all duration-300 group">
-                    <div class="h-48 bg-gradient-to-r from-primary/30 to-secondary/30 flex items-center justify-center">
-                        <i class="fa fa-desktop text-6xl text-white/80 group-hover:scale-110 transition-transform duration-300"></i>
+                <div class="project-card animate-on-scroll-scale bg-code/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 hover:border-primary/50 group cursor-pointer">
+                    <div class="h-48 bg-gradient-to-r from-primary/30 to-secondary/30 flex items-center justify-center relative">
+                        <div class="card-overlay absolute inset-0 bg-gradient-to-r from-primary/50 to-secondary/50 flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">查看详情</span>
+                        </div>
+                        <i class="card-icon fa fa-desktop text-6xl text-white/80"></i>
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-3">
@@ -530,9 +761,12 @@
                 </div>
 
                 <!-- 移动端数据报表APP -->
-                <div class="bg-code/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 hover:border-primary/50 transition-all duration-300 group">
-                    <div class="h-48 bg-gradient-to-r from-secondary/30 to-primary/30 flex items-center justify-center">
-                        <i class="fa fa-mobile text-6xl text-white/80 group-hover:scale-110 transition-transform duration-300"></i>
+                <div class="project-card animate-on-scroll-scale bg-code/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 hover:border-primary/50 group cursor-pointer">
+                    <div class="h-48 bg-gradient-to-r from-secondary/30 to-primary/30 flex items-center justify-center relative">
+                        <div class="card-overlay absolute inset-0 bg-gradient-to-r from-secondary/50 to-primary/50 flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">查看详情</span>
+                        </div>
+                        <i class="card-icon fa fa-mobile text-6xl text-white/80"></i>
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-3">
@@ -556,9 +790,12 @@
                 </div>
 
                 <!-- BI在线取数分析系统 -->
-                <div class="bg-code/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 hover:border-primary/50 transition-all duration-300 group">
-                    <div class="h-48 bg-gradient-to-r from-primary/30 to-secondary/30 flex items-center justify-center">
-                        <i class="fa fa-database text-6xl text-white/80 group-hover:scale-110 transition-transform duration-300"></i>
+                <div class="project-card animate-on-scroll-scale bg-code/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 hover:border-primary/50 group cursor-pointer">
+                    <div class="h-48 bg-gradient-to-r from-primary/30 to-secondary/30 flex items-center justify-center relative">
+                        <div class="card-overlay absolute inset-0 bg-gradient-to-r from-primary/50 to-secondary/50 flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">查看详情</span>
+                        </div>
+                        <i class="card-icon fa fa-database text-6xl text-white/80"></i>
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-3">
@@ -582,9 +819,12 @@
                 </div>
 
                 <!-- NLP语料清洗与训练平台 -->
-                <div class="bg-code/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 hover:border-primary/50 transition-all duration-300 group">
-                    <div class="h-48 bg-gradient-to-r from-primary/30 to-secondary/30 flex items-center justify-center">
-                        <i class="fa fa-comments text-6xl text-white/80 group-hover:scale-110 transition-transform duration-300"></i>
+                <div class="project-card animate-on-scroll-scale bg-code/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 hover:border-primary/50 group cursor-pointer">
+                    <div class="h-48 bg-gradient-to-r from-primary/30 to-secondary/30 flex items-center justify-center relative">
+                        <div class="card-overlay absolute inset-0 bg-gradient-to-r from-primary/50 to-secondary/50 flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">查看详情</span>
+                        </div>
+                        <i class="card-icon fa fa-comments text-6xl text-white/80"></i>
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-3">
@@ -608,9 +848,12 @@
                 </div>
 
                 <!-- AI大模型应用集成平台 -->
-                <div class="bg-code/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 hover:border-primary/50 transition-all duration-300 group">
-                    <div class="h-48 bg-gradient-to-r from-secondary/30 to-primary/30 flex items-center justify-center">
-                        <i class="fa fa-brain text-6xl text-white/80 group-hover:scale-110 transition-transform duration-300"></i>
+                <div class="project-card animate-on-scroll-scale bg-code/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 hover:border-primary/50 group cursor-pointer">
+                    <div class="h-48 bg-gradient-to-r from-secondary/30 to-primary/30 flex items-center justify-center relative">
+                        <div class="card-overlay absolute inset-0 bg-gradient-to-r from-secondary/50 to-primary/50 flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">查看详情</span>
+                        </div>
+                        <i class="card-icon fa fa-brain text-6xl text-white/80"></i>
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-3">
@@ -634,9 +877,12 @@
                 </div>
 
                 <!-- AI编程工具链实践 -->
-                <div class="bg-code/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 hover:border-primary/50 transition-all duration-300 group">
-                    <div class="h-48 bg-gradient-to-r from-primary/30 to-secondary/30 flex items-center justify-center">
-                        <i class="fa fa-magic text-6xl text-white/80 group-hover:scale-110 transition-transform duration-300"></i>
+                <div class="project-card animate-on-scroll-scale bg-code/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 hover:border-primary/50 group cursor-pointer">
+                    <div class="h-48 bg-gradient-to-r from-primary/30 to-secondary/30 flex items-center justify-center relative">
+                        <div class="card-overlay absolute inset-0 bg-gradient-to-r from-primary/50 to-secondary/50 flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">查看详情</span>
+                        </div>
+                        <i class="card-icon fa fa-magic text-6xl text-white/80"></i>
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-3">
@@ -660,9 +906,12 @@
                 </div>
 
                 <!-- 开源项目 -->
-                <div class="bg-code/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 hover:border-primary/50 transition-all duration-300 group">
-                    <div class="h-48 bg-gradient-to-r from-secondary/30 to-primary/30 flex items-center justify-center">
-                        <i class="fa fa-github text-6xl text-white/80 group-hover:scale-110 transition-transform duration-300"></i>
+                <div class="project-card animate-on-scroll-scale bg-code/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-800 hover:border-primary/50 group cursor-pointer">
+                    <div class="h-48 bg-gradient-to-r from-secondary/30 to-primary/30 flex items-center justify-center relative">
+                        <div class="card-overlay absolute inset-0 bg-gradient-to-r from-secondary/50 to-primary/50 flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">查看详情</span>
+                        </div>
+                        <i class="card-icon fa fa-github text-6xl text-white/80"></i>
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-center mb-3">
@@ -691,68 +940,68 @@
     <!-- 技能栈 -->
     <section id="skills" class="py-20 px-4 bg-code/30">
         <div class="container mx-auto">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16 animate-on-scroll">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">
                     <span class="text-primary">#</span> 技能栈
                 </h2>
-                <div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+                <div class="section-divider"></div>
                 <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
                     技术广度与深度兼备，专注于高效可靠的后端技术解决方案
                 </p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-12">
-                <div>
+                <div class="animate-on-scroll-left">
                     <h3 class="text-2xl font-bold mb-8 flex items-center gap-2">
                         <i class="fa fa-code text-primary"></i> 核心技能
                     </h3>
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                        <div class="skill-tag bg-code/70 rounded-lg p-4 border border-gray-800 hover:border-primary/50">
+                        <div class="skill-tag bg-code/70 rounded-lg p-4 border border-gray-800 hover:border-primary/50" style="transition-delay: 0.05s">
                             <div class="text-primary text-xl mb-2"><i class="fa fa-coffee"></i></div>
                             <h4 class="font-bold mb-1">Java</h4>
                             <p class="text-sm text-gray-400">多线程/JVM调优</p>
                         </div>
-                        <div class="skill-tag bg-code/70 rounded-lg p-4 border border-gray-800 hover:border-primary/50">
+                        <div class="skill-tag bg-code/70 rounded-lg p-4 border border-gray-800 hover:border-primary/50" style="transition-delay: 0.1s">
                             <div class="text-primary text-xl mb-2"><i class="fa fa-cubes"></i></div>
                             <h4 class="font-bold mb-1">框架</h4>
                             <p class="text-sm text-gray-400">SpringCloud/Dubbo</p>
                         </div>
-                        <div class="skill-tag bg-code/70 rounded-lg p-4 border border-gray-800 hover:border-primary/50">
+                        <div class="skill-tag bg-code/70 rounded-lg p-4 border border-gray-800 hover:border-primary/50" style="transition-delay: 0.15s">
                             <div class="text-primary text-xl mb-2"><i class="fa fa-database"></i></div>
                             <h4 class="font-bold mb-1">数据库</h4>
                             <p class="text-sm text-gray-400">MySQL/ES/Mongo</p>
                         </div>
-                        <div class="skill-tag bg-code/70 rounded-lg p-4 border border-gray-800 hover:border-primary/50">
+                        <div class="skill-tag bg-code/70 rounded-lg p-4 border border-gray-800 hover:border-primary/50" style="transition-delay: 0.2s">
                             <div class="text-primary text-xl mb-2"><i class="fa fa-cloud"></i></div>
                             <h4 class="font-bold mb-1">云原生</h4>
                             <p class="text-sm text-gray-400">Docker/K8s/阿里云</p>
                         </div>
-                        <div class="skill-tag bg-code/70 rounded-lg p-4 border border-gray-800 hover:border-primary/50">
+                        <div class="skill-tag bg-code/70 rounded-lg p-4 border border-gray-800 hover:border-primary/50" style="transition-delay: 0.25s">
                             <div class="text-primary text-xl mb-2"><i class="fa fa-exchange"></i></div>
                             <h4 class="font-bold mb-1">消息队列</h4>
                             <p class="text-sm text-gray-400">Redis/RabbitMQ/Kafka</p>
                         </div>
-                        <div class="skill-tag bg-code/70 rounded-lg p-4 border border-gray-800 hover:border-primary/50">
+                        <div class="skill-tag bg-code/70 rounded-lg p-4 border border-gray-800 hover:border-primary/50" style="transition-delay: 0.3s">
                             <div class="text-primary text-xl mb-2"><i class="fa fa-cogs"></i></div>
                             <h4 class="font-bold mb-1">DevOps</h4>
                             <p class="text-sm text-gray-400">Jenkins/云效</p>
                         </div>
-                        <div class="skill-tag bg-code/70 rounded-lg p-4 border border-gray-800 hover:border-primary/50">
+                        <div class="skill-tag bg-code/70 rounded-lg p-4 border border-gray-800 hover:border-primary/50" style="transition-delay: 0.35s">
                             <div class="text-secondary text-xl mb-2"><i class="fa fa-comments"></i></div>
                             <h4 class="font-bold mb-1">NLP工程</h4>
                             <p class="text-sm text-gray-400">语料清洗/标注/SFT微调</p>
                         </div>
-                        <div class="skill-tag bg-code/70 rounded-lg p-4 border border-gray-800 hover:border-primary/50">
+                        <div class="skill-tag bg-code/70 rounded-lg p-4 border border-gray-800 hover:border-primary/50" style="transition-delay: 0.4s">
                             <div class="text-secondary text-xl mb-2"><i class="fa fa-brain"></i></div>
                             <h4 class="font-bold mb-1">大模型应用</h4>
                             <p class="text-sm text-gray-400">Claude/GLM/Qwen/DeepSeek</p>
                         </div>
-                        <div class="skill-tag bg-code/70 rounded-lg p-4 border border-gray-800 hover:border-primary/50">
+                        <div class="skill-tag bg-code/70 rounded-lg p-4 border border-gray-800 hover:border-primary/50" style="transition-delay: 0.45s">
                             <div class="text-secondary text-xl mb-2"><i class="fa fa-magic"></i></div>
                             <h4 class="font-bold mb-1">AI编程工具</h4>
                             <p class="text-sm text-gray-400">Claude Code/Qoder/Kiro</p>
                         </div>
-                        <div class="skill-tag bg-code/70 rounded-lg p-4 border border-gray-800 hover:border-primary/50">
+                        <div class="skill-tag bg-code/70 rounded-lg p-4 border border-gray-800 hover:border-primary/50" style="transition-delay: 0.5s">
                             <div class="text-secondary text-xl mb-2"><i class="fa fa-puzzle-piece"></i></div>
                             <h4 class="font-bold mb-1">Prompt工程</h4>
                             <p class="text-sm text-gray-400">Agent设计/工作流编排</p>
@@ -763,7 +1012,7 @@
                         <i class="fa fa-trophy text-primary"></i> 技术亮点
                     </h3>
                     <div class="space-y-4">
-                        <div class="bg-code/50 backdrop-blur-sm rounded-lg p-4 border border-gray-800 hover:border-primary/50 transition-all duration-300">
+                        <div class="animate-on-scroll bg-code/50 backdrop-blur-sm rounded-lg p-4 border border-gray-800 hover:border-primary/50 hover:translate-x-1 transition-all duration-300">
                             <h4 class="font-bold flex items-center gap-2">
                                 <i class="fa fa-check text-primary"></i> 高可用架构设计
                             </h4>
@@ -771,7 +1020,7 @@
                                 擅长分布式系统设计，通过限流、熔断、降级等策略保障系统稳定性
                             </p>
                         </div>
-                        <div class="bg-code/50 backdrop-blur-sm rounded-lg p-4 border border-gray-800 hover:border-primary/50 transition-all duration-300">
+                        <div class="animate-on-scroll bg-code/50 backdrop-blur-sm rounded-lg p-4 border border-gray-800 hover:border-primary/50 hover:translate-x-1 transition-all duration-300">
                             <h4 class="font-bold flex items-center gap-2">
                                 <i class="fa fa-check text-primary"></i> 性能优化专家
                             </h4>
@@ -779,7 +1028,7 @@
                                 精通JVM调优、SQL优化、缓存策略，多次将系统性能提升50%以上
                             </p>
                         </div>
-                        <div class="bg-code/50 backdrop-blur-sm rounded-lg p-4 border border-gray-800 hover:border-primary/50 transition-all duration-300">
+                        <div class="animate-on-scroll bg-code/50 backdrop-blur-sm rounded-lg p-4 border border-gray-800 hover:border-primary/50 hover:translate-x-1 transition-all duration-300">
                             <h4 class="font-bold flex items-center gap-2">
                                 <i class="fa fa-check text-primary"></i> 全栈开发能力
                             </h4>
@@ -787,7 +1036,7 @@
                                 具备Python/React/Flask等前后端技术栈，能够独立完成全栈项目开发
                             </p>
                         </div>
-                        <div class="bg-code/50 backdrop-blur-sm rounded-lg p-4 border border-gray-800 hover:border-primary/50 transition-all duration-300">
+                        <div class="animate-on-scroll bg-code/50 backdrop-blur-sm rounded-lg p-4 border border-gray-800 hover:border-primary/50 hover:translate-x-1 transition-all duration-300">
                             <h4 class="font-bold flex items-center gap-2">
                                 <i class="fa fa-check text-primary"></i> 工具化思维
                             </h4>
@@ -795,7 +1044,7 @@
                                 注重自动化工具开发，自主研发多款效率工具，提升团队研发效率
                             </p>
                         </div>
-                        <div class="bg-code/50 backdrop-blur-sm rounded-lg p-4 border border-gray-800 hover:border-secondary/50 transition-all duration-300">
+                        <div class="animate-on-scroll bg-code/50 backdrop-blur-sm rounded-lg p-4 border border-gray-800 hover:border-secondary/50 hover:translate-x-1 transition-all duration-300">
                             <h4 class="font-bold flex items-center gap-2">
                                 <i class="fa fa-check text-secondary"></i> NLP语料工程
                             </h4>
@@ -803,7 +1052,7 @@
                                 精通NLP语料数据全流程处理，包括数据采集、清洗去重、质量评估、标注管理及SFT微调，构建高质量训练语料集
                             </p>
                         </div>
-                        <div class="bg-code/50 backdrop-blur-sm rounded-lg p-4 border border-gray-800 hover:border-secondary/50 transition-all duration-300">
+                        <div class="animate-on-scroll bg-code/50 backdrop-blur-sm rounded-lg p-4 border border-gray-800 hover:border-secondary/50 hover:translate-x-1 transition-all duration-300">
                             <h4 class="font-bold flex items-center gap-2">
                                 <i class="fa fa-check text-secondary"></i> 大模型应用集成
                             </h4>
@@ -811,7 +1060,7 @@
                                 熟练集成Claude Sonnet、GLM、Qwen、DeepSeek等主流大模型，实现多模型路由、Prompt编排与AI Agent工作流设计
                             </p>
                         </div>
-                        <div class="bg-code/50 backdrop-blur-sm rounded-lg p-4 border border-gray-800 hover:border-secondary/50 transition-all duration-300">
+                        <div class="animate-on-scroll bg-code/50 backdrop-blur-sm rounded-lg p-4 border border-gray-800 hover:border-secondary/50 hover:translate-x-1 transition-all duration-300">
                             <h4 class="font-bold flex items-center gap-2">
                                 <i class="fa fa-check text-secondary"></i> AI辅助研发效能
                             </h4>
@@ -822,7 +1071,7 @@
                     </div>
                 </div>
 
-                <div>
+                <div class="animate-on-scroll-right">
                     <h3 class="text-2xl font-bold mb-8 flex items-center gap-2">
                         <i class="fa fa-pie-chart text-primary"></i> 技能熟练度
                     </h3>
@@ -834,14 +1083,14 @@
                         <i class="fa fa-lightbulb-o text-primary"></i> 技术视野
                     </h3>
                     <div class="bg-code/50 backdrop-blur-sm rounded-xl p-6 border border-gray-800">
-                        <div class="space-y-6">
+                        <div class="space-y-6" id="progressBars">
                             <div>
                                 <div class="flex justify-between mb-2">
                                     <span class="font-medium">AI技术应用</span>
                                     <span class="text-primary">90%</span>
                                 </div>
                                 <div class="w-full bg-gray-800 rounded-full h-2">
-                                    <div class="bg-gradient-to-r from-secondary to-primary h-2 rounded-full" style="width: 90%"></div>
+                                    <div class="progress-bar-fill bg-gradient-to-r from-secondary to-primary h-2 rounded-full" style="--target-width: 90%"></div>
                                 </div>
                             </div>
                             <div>
@@ -850,7 +1099,7 @@
                                     <span class="text-secondary">85%</span>
                                 </div>
                                 <div class="w-full bg-gray-800 rounded-full h-2">
-                                    <div class="bg-gradient-to-r from-secondary to-primary h-2 rounded-full" style="width: 85%"></div>
+                                    <div class="progress-bar-fill bg-gradient-to-r from-secondary to-primary h-2 rounded-full" style="--target-width: 85%"></div>
                                 </div>
                             </div>
                             <div>
@@ -859,7 +1108,7 @@
                                     <span class="text-secondary">85%</span>
                                 </div>
                                 <div class="w-full bg-gray-800 rounded-full h-2">
-                                    <div class="bg-gradient-to-r from-secondary to-primary h-2 rounded-full" style="width: 85%"></div>
+                                    <div class="progress-bar-fill bg-gradient-to-r from-secondary to-primary h-2 rounded-full" style="--target-width: 85%"></div>
                                 </div>
                             </div>
                             <div>
@@ -868,7 +1117,7 @@
                                     <span class="text-primary">95%</span>
                                 </div>
                                 <div class="w-full bg-gray-800 rounded-full h-2">
-                                    <div class="bg-gradient-to-r from-primary to-secondary h-2 rounded-full" style="width: 95%"></div>
+                                    <div class="progress-bar-fill bg-gradient-to-r from-primary to-secondary h-2 rounded-full" style="--target-width: 95%"></div>
                                 </div>
                             </div>
                             <div>
@@ -877,7 +1126,7 @@
                                     <span class="text-primary">85%</span>
                                 </div>
                                 <div class="w-full bg-gray-800 rounded-full h-2">
-                                    <div class="bg-gradient-to-r from-primary to-secondary h-2 rounded-full" style="width: 85%"></div>
+                                    <div class="progress-bar-fill bg-gradient-to-r from-primary to-secondary h-2 rounded-full" style="--target-width: 85%"></div>
                                 </div>
                             </div>
                             <div>
@@ -886,7 +1135,7 @@
                                     <span class="text-primary">80%</span>
                                 </div>
                                 <div class="w-full bg-gray-800 rounded-full h-2">
-                                    <div class="bg-gradient-to-r from-primary to-secondary h-2 rounded-full" style="width: 80%"></div>
+                                    <div class="progress-bar-fill bg-gradient-to-r from-primary to-secondary h-2 rounded-full" style="--target-width: 80%"></div>
                                 </div>
                             </div>
                             <div>
@@ -895,7 +1144,7 @@
                                     <span class="text-primary">70%</span>
                                 </div>
                                 <div class="w-full bg-gray-800 rounded-full h-2">
-                                    <div class="bg-gradient-to-r from-primary to-secondary h-2 rounded-full" style="width: 70%"></div>
+                                    <div class="progress-bar-fill bg-gradient-to-r from-primary to-secondary h-2 rounded-full" style="--target-width: 70%"></div>
                                 </div>
                             </div>
                         </div>
@@ -908,18 +1157,18 @@
     <!-- 联系方式 -->
     <section id="contact" class="py-20 px-4">
         <div class="container mx-auto">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16 animate-on-scroll">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">
                     <span class="text-primary">#</span> 联系方式
                 </h2>
-                <div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+                <div class="section-divider"></div>
                 <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
                     欢迎联系我，共同探讨技术与合作机会
                 </p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-                <div class="bg-code/50 backdrop-blur-sm rounded-xl p-8 border border-gray-800">
+                <div class="animate-on-scroll-left bg-code/50 backdrop-blur-sm rounded-xl p-8 border border-gray-800">
                     <h3 class="text-2xl font-bold mb-6">联系信息</h3>
                     <div class="space-y-6">
                         <div class="flex items-start gap-4">
@@ -968,7 +1217,7 @@
                     </div>
                 </div>
 
-                <div class="bg-code/50 backdrop-blur-sm rounded-xl p-8 border border-gray-800">
+                <div class="animate-on-scroll-right bg-code/50 backdrop-blur-sm rounded-xl p-8 border border-gray-800">
                     <h3 class="text-2xl font-bold mb-6">发送消息</h3>
                     <form class="space-y-4">
                         <div>
@@ -1009,7 +1258,7 @@
                     </a>
                 </div>
                 <div class="text-gray-500 text-sm">
-                    © 2025 浦仁松. 保留所有权利.
+                    © 2026 浦仁松. 保留所有权利.
                 </div>
             </div>
         </div>
@@ -1070,7 +1319,7 @@
         // 移动端菜单切换
         const menuBtn = document.getElementById('menuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
-        
+
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
             const icon = menuBtn.querySelector('i');
@@ -1118,7 +1367,7 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
+
                 // 关闭移动端菜单
                 if (!mobileMenu.classList.contains('hidden')) {
                     mobileMenu.classList.add('hidden');
@@ -1129,7 +1378,7 @@
 
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
-                
+
                 if (targetElement) {
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
@@ -1139,9 +1388,9 @@
             });
         });
 
-        // 滚动动画
+        // 滚动动画 - 时间线
         const animateElements = document.querySelectorAll('[data-animate="true"]');
-        const observer = new IntersectionObserver((entries) => {
+        const timelineObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.remove('opacity-0', 'translate-y-8');
@@ -1151,7 +1400,91 @@
         }, { threshold: 0.1 });
 
         animateElements.forEach(element => {
-            observer.observe(element);
+            timelineObserver.observe(element);
+        });
+
+        // 通用滚动动画
+        const scrollAnimateElements = document.querySelectorAll('.animate-on-scroll, .animate-on-scroll-left, .animate-on-scroll-right, .animate-on-scroll-scale');
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        scrollAnimateElements.forEach(element => {
+            scrollObserver.observe(element);
+        });
+
+        // 进度条动画
+        const progressBars = document.querySelectorAll('.progress-bar-fill');
+        const progressObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fill');
+                }
+            });
+        }, { threshold: 0.3 });
+
+        progressBars.forEach(bar => {
+            progressObserver.observe(bar);
+        });
+
+        // 导航高亮
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function highlightNav() {
+            const scrollPos = window.scrollY + 100;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active', 'text-primary');
+                        if (link.getAttribute('href') === '#' + sectionId) {
+                            link.classList.add('active', 'text-primary');
+                        }
+                    });
+                }
+            });
+        }
+
+        window.addEventListener('scroll', highlightNav);
+        highlightNav(); // 初始化
+
+        // 鼠标跟随光标效果
+        const cursorGlow = document.getElementById('cursorGlow');
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateCursor() {
+            cursorX += (mouseX - cursorX) * 0.1;
+            cursorY += (mouseY - cursorY) * 0.1;
+            cursorGlow.style.left = cursorX + 'px';
+            cursorGlow.style.top = cursorY + 'px';
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // 输入框焦点效果
+        document.querySelectorAll('input, textarea').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.classList.add('scale-[1.02]');
+                this.parentElement.style.transition = 'transform 0.3s ease';
+            });
+            input.addEventListener('blur', function() {
+                this.parentElement.classList.remove('scale-[1.02]');
+            });
         });
     </script>
 </body>
